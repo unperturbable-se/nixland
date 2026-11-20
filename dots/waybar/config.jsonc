@@ -29,7 +29,7 @@
   "format-ethernet": "ETH {ifname}",
   "format-disconnected": "Offline",
   "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
-  "on-click": "iwgtk"
+  "on-click": "nm-applet"
   },
 
   "battery": {

@@ -18,9 +18,8 @@
   networking.hostName = "reproducible-box";
   networking.networkmanager = {
   enable = true;
-  wifi.backend = "iwd";
   };
-  networking.wireless.enable = false;
+  networking.wireless.enable = true;
   time.timeZone = "Asia/Karachi";
 
   i18n.defaultLocale = "en_US.UTF-8";
@@ -104,6 +103,7 @@
     uv
     rustc
     cargo
+    go
     gcc
     python314
     cmake
@@ -112,6 +112,8 @@
     
     # Audio & Wayland Qt Support
     wireplumber
+    brightnessctl 
+    pulseaudio
     qt5.qtwayland
     qt6.qtwayland
 
@@ -158,7 +160,7 @@
     hyprlandPlugins.hyprbars
     libdbusmenu-gtk3
     libappindicator-gtk3
-    iwgtk
+    #iwgtk
     nemo
     socat
   ];
