@@ -9,12 +9,13 @@ if [ ${#WALLPAPERS[@]} -eq 0 ]; then
     exit 1
 fi
 
-# Extract the active wallpaper path directly from the running awww daemon
-CURRENT=$(awww query | grep -oP 'image: \K.*' | head -n 1)
+# Extract the active .gif path regardless of surrounding labels/text
+CURRENT_PATH=$(awww query | grep -oE '/[^,[:space:]]+\.gif' | head -n 1)
+CURRENT_NAME=$(basename "$CURRENT_PATH" 2>/dev/null)
 
 NEXT_INDEX=0
 for i in "${!WALLPAPERS[@]}"; do
-    if [[ "${WALLPAPERS[$i]}" == "$CURRENT" ]]; then
+    if [[ "$(basename "${WALLPAPERS[$i]}")" == "$CURRENT_NAME" ]]; then
         NEXT_INDEX=$(( (i + 1) % ${#WALLPAPERS[@]} ))
         break
     fi
