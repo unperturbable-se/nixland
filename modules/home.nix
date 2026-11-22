@@ -1,11 +1,9 @@
 { config, pkgs, lib, ... }:
 
 let
-  dotsPath = ./dots;
+  dotsPath = ../dots; # Use ./dots if keeping home.nix in the root folder
 in
 {
-  home.username = "raed";
-  home.homeDirectory = "/home/raed";
   home.stateVersion = "25.11";
 
   xdg.configFile = lib.mapAttrs

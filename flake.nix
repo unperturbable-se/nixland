@@ -1,5 +1,5 @@
 {
-  description = "My NixOS Flake Configuration";
+  description = "my op nixos configuration";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/ac588ef1c914"; # Your pinned commit
@@ -12,16 +12,19 @@
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs: {
     nixosConfigurations = {
-      reproducible-box = nixpkgs.lib.nixosSystem {
+      default = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux"; # Adjust if you are on a different architecture
         modules = [
-          ./configuration.nix
           home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.raed = import ./home.nix;
-          }
+          ./modules/users.nix
+          ./modules/core.nix
+          ./modules/drivers.nix
+          ./modules/hyprland.nix
+          ./modules/dev.nix
+          ./modules/apps.nix
+          ./modules/locales.nix
+          #./machines/nvidia.nix
+          #./machines/virtual_machine.nix
         ];
       };
     };
