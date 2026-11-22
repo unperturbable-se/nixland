@@ -15,6 +15,13 @@ The Hyprland setup and a collection of useful dotfiles are all bundled into the 
   </tr>
 </table>
 
+## Reproducible and Fast to Install
+
+The entire configuration is pinned to a single stable nixpkgs release that is fully cached by Hydra, the official NixOS build farm. This means:
+
+- **Reproducible:** every install gets the same package versions.
+- **No compiling:** most packages are downloaded as prebuilt binaries instead of being built locally, which makes SuperHYPR a good fit for weaker computers.
+
 ## Table of Contents
 
 - [Installation](#installation)
@@ -49,7 +56,13 @@ The Hyprland setup and a collection of useful dotfiles are all bundled into the 
 
 5. **(Optional) Customize** the installed apps, users, and locale. See [Customization](#customization).
 
-6. **Build and switch to the new configuration:**
+6. **Stage all changes with git.** Flakes only see files tracked by git, so stage everything before building:
+
+   ```sh
+   git add .
+   ```
+
+7. **Build and switch to the new configuration:**
 
    ```sh
    sudo nixos-rebuild switch --flake .#default
