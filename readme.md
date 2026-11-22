@@ -6,12 +6,12 @@ The Hyprland setup and a collection of useful dotfiles are all bundled into the 
 
 <table>
   <tr>
-    <td><img src="https://github.com/user-attachments/assets/6b73afb3-0679-44d5-8386-0cd198c63129" width="450" alt="Desktop screenshot 1"></td>
-    <td><img src="https://github.com/user-attachments/assets/92e3dd85-3177-4f23-be4b-3c99ec9d661d" width="450" alt="Desktop screenshot 2"></td>
+    <td><img src="https://github.com/user-attachments/assets/1e8fcf0f-4376-45ea-ae54-d258b740ead4" width="450" alt="Desktop screenshot 1"></td>
+    <td><img src="https://github.com/user-attachments/assets/cf5612c5-372b-471b-8444-8b3dd9076d65"  width="450" alt="Desktop screenshot 2"></td>
   </tr>
   <tr>
-    <td><img src="https://github.com/user-attachments/assets/230f6338-2c19-4709-878f-d779a7ed3d59" width="450" alt="Desktop screenshot 3"></td>
-    <td><img src="https://github.com/user-attachments/assets/52acf8c4-42fc-4f8a-8e63-c4ce615622c4" width="450" alt="Desktop screenshot 4"></td>
+    <td><img src="https://github.com/user-attachments/assets/5adc69b7-b950-4aa1-a27a-4fb9d65b3ea7" width="450" alt="Desktop screenshot 3"></td>
+    <td><img src="https://github.com/user-attachments/assets/ea209fa0-5ebf-4804-ae96-be14ddedfcde" width="450" alt="Desktop screenshot 4"></td>
   </tr>
 </table>
 
