@@ -1,4 +1,4 @@
-# SuperHYPR
+# nixland
 
 A custom, modular NixOS configuration built around the Hyprland window manager. It is easy to read and easy to edit.
 
