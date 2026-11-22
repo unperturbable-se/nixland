@@ -1,0 +1,179 @@
+
+
+# Monitor (auto-detect resolution and scale)
+monitor = , preferred, auto, auto
+
+# Default programs
+$terminal = kitty
+$menu = sh ~/.config/rofi/list-menu.sh
+$mainMod = SUPER
+
+# Commands
+$logout= uwsm stop
+$lock= hyprlock --config ~/.config/lockscreen/hyprlock.conf
+# Environment variables
+env = XCURSOR_SIZE,24
+env = HYPRCURSOR_SIZE,24
+
+# Autostart processes (UWSM session tracking)
+exec-once = uwsm app -- waybar
+exec-once = uwsm app -- swaync
+exec-once = uwsm app -- nm-applet --indicator
+exec-once = uwsm app -- awww-daemon
+exec-once = uwsm app -- ~/.config/awww/wallpaper.sh
+exec-once = systemctl --user start hyprpolkitagent
+exec-once = nemo-desktop
+exec-once = ~/.config/nemo/shift_windows.sh
+exec-once = nemo-desktop
+exec-once = sleep 1 && hyprctl dispatch workspace 2
+
+#exec-once = hyprctl plugin load /run/current-system/sw/lib/libhyprbars.so
+#source = ~/.config/hyprbars/hyprbars.conf
+
+# General
+general {
+    gaps_in = 5
+    gaps_out = 10
+    border_size = 2
+    col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg
+    col.inactive_border = rgba(595959aa)
+    layout = dwindle
+}
+
+# Decoration (Frosted glass blur)
+decoration {
+    rounding = 12
+
+    blur {
+        enabled = true
+        size = 8
+        passes = 3
+        new_optimizations = true
+        ignore_opacity = true
+        vibrancy = 0.2
+    }
+}
+
+# Input
+input {
+    kb_layout = us
+    follow_mouse = 1
+
+    touchpad {
+        natural_scroll = true
+    }
+}
+
+# Misc
+misc {
+    force_default_wallpaper = 1
+    disable_hyprland_logo = false
+}
+
+# Layer rules (frosted glass blur for Waybar, Rofi, and SwayNC)
+# Hyprland 0.53+ syntax
+layerrule = blur on, match:namespace waybar
+layerrule = ignore_alpha 0, match:namespace waybar
+
+layerrule = blur on, match:namespace rofi
+layerrule = ignore_alpha 0, match:namespace rofi
+
+layerrule = blur on, match:namespace swaync-control-center
+layerrule = ignore_alpha 0, match:namespace swaync-control-center
+
+layerrule = blur on, match:namespace swaync-notification-window
+layerrule = ignore_alpha 0, match:namespace swaync-notification-window
+windowrule = float on, center on, size 420 560, match:class ^(nm-applet)$
+# Core keybinds
+bind = $mainMod, Return, exec, $terminal
+bind = $mainMod, T, exec, $terminal
+bind = $mainMod, Q, killactive,
+bind = $mainMod, M, exit,
+bindr = SUPER, SUPER_L, exec, pkill -x rofi || $menu
+bind = $mainMod, F, fullscreen, 0
+bind = $mainMod SHIFT, F, fullscreen, 1
+bind = $mainMod, V, togglefloating,
+bind = $mainMod, E, exec, dolphin
+bind= $mainMod SHIFT, L, exec, $logout
+bind= $mainMod, L, exec, $lock
+bind = CTRL ALT, Delete, exec, bash ~/.config/power-menu/power-menu.sh
+bind = ,XF86AudioLowerVolume, exec, pactl -- set-sink-volume 0 -10%
+bind = ,XF86AudioRaiseVolume, exec, pactl -- set-sink-volume 0 +10%
+bind = ,XF86AudioMute, exec, pactl -- set-sink-mute 0 toggle
+bind = ,XF86AudioMicMute, exec, pactl -- set-source-mute 0 toggle
+bind = ,XF86MonBrightnessDown, exec, brightnessctl s 10%-
+bind = ,XF86MonBrightnessUp, exec, brightnessctl s +10%
+bind = $mainMod,XF86AudioLowerVolume, exec, brightnessctl s 10%-
+bind = $mainMod,XF86AudioRaiseVolume, exec, brightnessctl s +10%
+# Focus movement
+bind = $mainMod, Left, movefocus, l
+bind = $mainMod, Right, movefocus, r
+bind = $mainMod, Up, movefocus, u
+bind = $mainMod, Down, movefocus, d
+
+# Cycle through windows (Alt+Tab)
+bind = ALT, Tab, cyclenext
+bind = ALT, Tab, bringactivetotop
+
+# Tabbed groups
+bind = $mainMod, G, togglegroup
+bind = $mainMod, Tab, changegroupactive, f
+bind = $mainMod SHIFT, Tab, changegroupactive, b
+
+# Move windows with the keyboard (joins a neighboring group if there is one)
+bind = $mainMod SHIFT, Left, movewindoworgroup, l
+bind = $mainMod SHIFT, Right, movewindoworgroup, r
+bind = $mainMod SHIFT, Up, movewindoworgroup, u
+bind = $mainMod SHIFT, Down, movewindoworgroup, d
+
+# Resize windows with the keyboard (hold to repeat)
+binde = $mainMod CTRL, Left, resizeactive, -40 0
+binde = $mainMod CTRL, Right, resizeactive, 40 0
+binde = $mainMod CTRL, Up, resizeactive, 0 -40
+binde = $mainMod CTRL, Down, resizeactive, 0 40
+
+# Switch workspaces (1-9)
+bind = $mainMod, 1, workspace, 1
+bind = $mainMod, 2, workspace, 2
+bind = $mainMod, 3, workspace, 3
+bind = $mainMod, 4, workspace, 4
+bind = $mainMod, 5, workspace, 5
+bind = $mainMod, 6, workspace, 6
+bind = $mainMod, 7, workspace, 7
+bind = $mainMod, 8, workspace, 8
+bind = $mainMod, 9, workspace, 9
+
+# Scroll through workspaces with Super + mouse wheel
+bind = $mainMod, mouse_down, workspace, e+1
+bind = $mainMod, mouse_up, workspace, e-1
+
+# Move active window to workspace (1-9)
+bind = $mainMod SHIFT, 1, movetoworkspace, 1
+bind = $mainMod SHIFT, 2, movetoworkspace, 2
+bind = $mainMod SHIFT, 3, movetoworkspace, 3
+bind = $mainMod SHIFT, 4, movetoworkspace, 4
+bind = $mainMod SHIFT, 5, movetoworkspace, 5
+bind = $mainMod SHIFT, 6, movetoworkspace, 6
+bind = $mainMod SHIFT, 7, movetoworkspace, 7
+bind = $mainMod SHIFT, 8, movetoworkspace, 8
+bind = $mainMod SHIFT, 9, movetoworkspace, 9
+
+#Screenshot
+bind = , Print, exec, ~/.config/screenshot/screenshot.sh menu
+# Mouse move & resize
+bindm = $mainMod, mouse:272, movewindow
+bindm = $mainMod, mouse:273, resizewindow
+
+#nemo config
+# ---- Boot into workspace 2 ----
+workspace = 2, default:true
+
+# ---- Nemo-desktop: desktop layer on workspace 1 ----
+windowrule = workspace 1 silent, match:class ^Nemo-desktop$
+windowrule = float on,           match:class ^Nemo-desktop$
+windowrule = move 0 0,           match:class ^Nemo-desktop$
+windowrule = size 100% 100%,     match:class ^Nemo-desktop$
+windowrule = border_size 0,      match:class ^Nemo-desktop$
+windowrule = no_shadow on,       match:class ^Nemo-desktop$
+windowrule = no_anim on,         match:class ^Nemo-desktop$
+windowrule = no_focus on,        match:class ^Nemo-desktop$
