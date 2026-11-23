@@ -20,7 +20,7 @@ The Hyprland setup and a collection of useful dotfiles are all bundled into the 
 The entire configuration is pinned to a single stable nixpkgs release that is fully cached by Hydra, the official NixOS build farm. This means:
 
 - **Reproducible:** every install gets the same package versions.
-- **No compiling:** most packages are downloaded as prebuilt binaries instead of being built locally, which makes SuperHYPR a good fit for weaker computers.
+- **No compiling:** most packages are downloaded as prebuilt binaries instead of being built locally, which makes nixland a good fit for weaker computers.
 
 ## Table of Contents
 
@@ -132,4 +132,4 @@ The configuration has two parts: the NixOS modules in `modules/` and the dotfile
 | `waybar` | The top bar (Wi-Fi, workspaces, and other status info) |
 | `yazi` | Yazi file manager config. Dolphin is also preinstalled for anyone who prefers a graphical file manager |
 
-[Back to top](#superhypr)
+[Back to top](#nixland)
