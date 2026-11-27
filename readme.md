@@ -131,5 +131,6 @@ The configuration has two parts: the NixOS modules in `modules/` and the dotfile
 | `shortcuts` | Script that lists all shortcuts |
 | `waybar` | The top bar (Wi-Fi, workspaces, and other status info) |
 | `yazi` | Yazi file manager config. Dolphin is also preinstalled for anyone who prefers a graphical file manager |
+| `regreet` | all the lockscreen config... you can replace wallpaper.png with any other image of your choice |
 
 [Back to top](#nixland)

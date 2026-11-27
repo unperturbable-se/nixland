@@ -1,0 +1,33 @@
+# Skip asking for username and session, and use the last used ones
+skip_selection = false
+
+[background]
+path = "/etc/nixos/dots/regreet/wallpaper.png"
+fit = "Cover"
+
+[env]
+# ENV_VARIABLE = "value"
+
+[GTK]
+application_prefer_dark_theme = true
+cursor_theme_name = "Adwaita"
+cursor_blink = true
+font_name = "Inter 13"
+icon_theme_name = "Papirus-Dark"
+theme_name = "adw-gtk3-dark"
+
+[commands]
+reboot = ["systemctl", "reboot"]
+poweroff = ["systemctl", "poweroff"]
+
+[appearance]
+greeting_msg = "Welcome back!!!"
+
+[widget.clock]
+# Large stacked digital clock on line 1, clean date on line 2
+format = "%H:%M%n%A, %b %e"
+resolution = "500ms"
+label_width = 260
+justification = "center"
+valign = "top"
+halign = "center"

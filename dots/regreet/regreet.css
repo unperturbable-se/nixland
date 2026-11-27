@@ -1,0 +1,120 @@
+/* /etc/nixos/dots/greetd/regreet.css */
+
+/* Deep obsidian fallback if the image takes a moment to load */
+window,
+window.background {
+  background-color: #070a12;
+  background-image: radial-gradient(circle at 50% 35%, #111c33 0%, #070a12 75%);
+}
+
+/* Softly blur & dim the animated wallpaper behind the glass panels */
+picture {
+  filter: blur(8px) brightness(0.78);
+}
+
+/* Main floating glass login card */
+frame.background {
+  background-color: rgba(11, 15, 25, 0.68);
+  background-image: linear-gradient(
+    155deg,
+    rgba(255, 255, 255, 0.10) 0%,
+    rgba(255, 255, 255, 0.02) 50%,
+    rgba(56, 189, 248, 0.06) 100%
+  );
+  border-radius: 22px;
+  border: 1px solid rgba(148, 210, 255, 0.24);
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.65),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.28);
+  padding: 22px 26px;
+}
+
+/* Top floating clock pill */
+frame.background.top {
+  margin-top: 32px;
+  padding: 12px 32px;
+  border-radius: 999px;
+  background-color: rgba(11, 15, 25, 0.64);
+  background-image: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.10) 0%,
+    rgba(255, 255, 255, 0.01) 100%
+  );
+  border: 1px solid rgba(148, 210, 255, 0.22);
+  box-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.50),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.25);
+}
+
+frame.background.top label {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  color: #f1f7ff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.65);
+}
+
+label {
+  color: rgba(232, 242, 255, 0.92);
+  letter-spacing: 0.5px;
+}
+
+/* Sleek glass text inputs (background-image: none strips adw-gtk3-dark styling) */
+entry {
+  min-height: 42px;
+  padding: 4px 14px;
+  border-radius: 12px;
+  color: #f8fbff;
+  caret-color: #38bdf8;
+  background-color: rgba(255, 255, 255, 0.06);
+  background-image: none;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.10);
+  transition: all 160ms ease;
+}
+
+entry:focus-within {
+  background-color: rgba(56, 189, 248, 0.10);
+  border-color: rgba(56, 189, 248, 0.75);
+  box-shadow:
+    0 0 14px rgba(56, 189, 248, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.20);
+}
+
+/* Glass buttons & session selector */
+button,
+dropdown > button {
+  min-height: 38px;
+  padding: 4px 14px;
+  border-radius: 12px;
+  color: #eef6ff;
+  background-color: rgba(255, 255, 255, 0.07);
+  background-image: none;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14);
+  transition: all 150ms ease;
+}
+
+button:hover,
+dropdown > button:hover {
+  background-color: rgba(56, 189, 248, 0.16);
+  border-color: rgba(56, 189, 248, 0.60);
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.22);
+}
+
+button.suggested-action {
+  background-color: rgba(56, 189, 248, 0.26);
+  border-color: rgba(56, 189, 248, 0.70);
+  font-weight: 600;
+}
+
+/* Session dropdown popover */
+popover,
+popover.background,
+popover > contents {
+  background-color: rgba(12, 17, 29, 0.92);
+  background-image: none;
+  border-radius: 14px;
+  border: 1px solid rgba(148, 210, 255, 0.24);
+  color: #f1f7ff;
+}

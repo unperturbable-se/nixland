@@ -55,5 +55,7 @@
     libappindicator-gtk3
     #iwgtk
     socat
+    bubblewrap
+    glycin-loaders
   ];
 }
